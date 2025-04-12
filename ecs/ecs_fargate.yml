@@ -4,7 +4,7 @@ Description: "ECS Fargate service for adoption"
 Parameters:
   DockerImage:
     Type: String
-    Description: datamorphproject/datamorph:latest
+    Description: datamorphproject/datamorph:latest # docker image
 
 Resources:
   Cluster:
@@ -60,7 +60,7 @@ Resources:
     Type: AWS::Logs::LogGroup
     Properties:
       LogGroupName: /ecs/sample-ecs-datamorph
-      RetentionInDays: 7  # Optional
+      RetentionInDays: 2
 
   ServiceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
