@@ -4,7 +4,7 @@ Description: "ECS Fargate service for adoption"
 Parameters:
   DockerImage:
     Type: String
-    Description: datamorphproject/datamorph:latest # docker image
+    Description: datamorphproject/datamorph:latest
 
 Resources:
   Cluster:
