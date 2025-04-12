@@ -60,7 +60,7 @@ Resources:
     Type: AWS::Logs::LogGroup
     Properties:
       LogGroupName: /ecs/sample-ecs-datamorph
-      RetentionInDays: 2
+      RetentionInDays: 7
 
   ServiceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
