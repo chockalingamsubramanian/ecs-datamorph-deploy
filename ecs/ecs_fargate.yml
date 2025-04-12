@@ -37,9 +37,18 @@ Resources:
           Image: !Ref DockerImage
           PortMappings:
             - ContainerPort: 8501 # Replace with an unique port value
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: /ecs/sample-ecs-datamorph
+              awslogs-region: !Ref AWS::Region
+              awslogs-stream-prefix: ecs
 
   LogGroup:
     Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /ecs/sample-ecs-datamorph
+      RetentionInDays: 7  # Optional
 
   ServiceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
