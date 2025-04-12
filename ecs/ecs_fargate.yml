@@ -23,6 +23,15 @@ Resources:
             Action: sts:AssumeRole
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+      Policies:
+        - PolicyName: AllowSecretsManagerAccess
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - secretsmanager:GetSecretValue
+                Resource: arn:aws:secretsmanager:eu-west-1:404214744707:secret:openai/api-key-8Ni9oX # api key stored in secrets 
 
   TaskDefinition:
     Type: AWS::ECS::TaskDefinition
@@ -43,6 +52,9 @@ Resources:
               awslogs-group: /ecs/sample-ecs-datamorph
               awslogs-region: !Ref AWS::Region
               awslogs-stream-prefix: ecs
+          Secrets:
+            - Name: OPENAI_API_KEY
+              ValueFrom: arn:aws:secretsmanager:eu-west-1:404214744707:secret:openai/api-key-8Ni9oX # api key stored in secrets
 
   LogGroup:
     Type: AWS::Logs::LogGroup
