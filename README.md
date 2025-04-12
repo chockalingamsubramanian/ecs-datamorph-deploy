@@ -1,2 +1,1 @@
-# ecs-sample-deploy..
-
+# ecs-sample-deploy.!
