@@ -36,7 +36,7 @@ Resources:
         - Name: sample-ecs-datamorph
           Image: !Ref DockerImage
           PortMappings:
-            - ContainerPort: 8501
+            - ContainerPort: 8501 # Replace with an unique port value
 
   LogGroup:
     Type: AWS::Logs::LogGroup
@@ -48,8 +48,8 @@ Resources:
       VpcId: vpc-f619ad8f # Replace with your VPC ID
       SecurityGroupIngress:
         - IpProtocol: tcp
-          FromPort: 8501
-          ToPort: 8501
+          FromPort: 8501 # Replace with an unique port value, but same as containerport
+          ToPort: 8501 # Replace with an unique port value, but same as containerport
           CidrIp: 0.0.0.0/0
 
   Service:
